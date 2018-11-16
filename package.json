@@ -1,0 +1,25 @@
+{
+  "name": "ar_boilerplate",
+  "version": "1.0.0",
+  "description": "a training project for new employees of KT S/W Division",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yejin0216/ar_boilerplate.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Yejin Kim(yejin0216@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yejin0216/ar_boilerplate/issues"
+  },
+  "homepage": "https://github.com/yejin0216/ar_boilerplate#readme",
+  "dependencies": {
+    "lodash": "^4.17.11"
+  }
+}

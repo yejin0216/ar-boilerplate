@@ -1,0 +1,21 @@
+{
+  "name": "ar_boilerplate_v1",
+  "description": "jsartoolkit을 이용한 프로젝트 개발을 위한 boilerplate입니다.",
+  "main": "index.js",
+  "authors": [
+    "Yejin Kim(yejin0216@gmail.com)"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "three.js": "git://github.com/mrdoob/three.js.git",
+    "jsartoolkit5": "git://github.com/artoolkit/jsartoolkit5.git"
+  }
+}

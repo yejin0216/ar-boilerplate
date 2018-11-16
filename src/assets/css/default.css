@@ -1,0 +1,33 @@
+@font-face{
+    font-family:NanumSquare;
+    font-style:normal;
+    font-weight:normal;
+    src:url('../fonts/NanumSquareR.woff');
+    src:local('?'),url('../fonts/NanumSquareR.woff') format('woff');}
+
+body{
+    font-family:NanumSquare,sans-serif;
+    font-weight:normal;
+}
+
+body div.information{
+    background-color: #eeeeee;
+    margin: 10px;
+    padding: 30px;
+    line-height: 25px;
+}
+
+body div.guide{
+    border: 1px solid #eeeeee;
+    margin: 10px;
+    padding: 30px;
+    line-height: 25px;
+}
+
+body ul{
+    margin-top: 0;
+}
+
+body p{
+    margin-bottom: 0;
+}
