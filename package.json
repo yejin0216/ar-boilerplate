@@ -4,7 +4,12 @@
   "description": "a training project for new employees of KT S/W Division",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "bug": {
+    "url": "https://github.com/yejin0216/ar_boilerplate/issues",
+    "email": "yejin0216@gmail.com"
   },
   "repository": {
     "type": "git",
@@ -13,13 +18,18 @@
   "keywords": [
     "javascript"
   ],
-  "author": "Yejin Kim(yejin0216@gmail.com)",
-  "license": "ISC",
+  "author": {
+    "name": "Yejin Kim",
+    "email": "yejin0216@gmail.com"
+  },
+  "license": "(MIT OR LGPL-3.0)",
   "bugs": {
     "url": "https://github.com/yejin0216/ar_boilerplate/issues"
   },
   "homepage": "https://github.com/yejin0216/ar_boilerplate#readme",
-  "dependencies": {
-    "lodash": "^4.17.11"
+  "devDependencies": {
+    "lodash": "^4.17.11",
+    "babel-core": "^6.26.3",
+    "babel-loader": "7.0.0"
   }
 }

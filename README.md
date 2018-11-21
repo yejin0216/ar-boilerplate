@@ -17,14 +17,21 @@
  - Nodejs
  - Web Task Manager: Webpack
 
-# 시작하기 (아래 순서대로 설치한다.)
+# 시작하기
  1. 사전 설치
      - git 설치
      - nodejs 설치
-     - npm install
-     - npm install webpack -g
-     - npm install webpack-cli -g
-     - npm install webpack-dev-server -g
+     - `npm install`
+     - `npm install webpack -g`
+     - `npm install webpack-cli -g`
+     - `npm install webpack-dev-server -g`
  2. 시작
-     - 터미널에 webpack-dev-server --hot 또는 webpack-dev-server 실행
-     - http://localhost:9000 접속
+     - 터미널에 `webpack-dev-server --hot` 또는 `webpack-dev-server` 실행
+     - `http://localhost:9000` 접속
+
+# important issues
+ 1. [Webpack : high CPU usage]
+
+
+
+ [Webpack : high CPU usage] : https://github.com/webpack/webpack/issues/701#issuecomment-70654775

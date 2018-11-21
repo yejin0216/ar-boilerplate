@@ -1,13 +1,13 @@
 /**
- * Camera를 구동할 영역을 지정한다.
+ * Canvas 객체를 생성한다.
  * @param arController
  * @returns {THREE.WebGLRenderer}
  */
-export default function makeWebGLRenderer(arController) {
+export function makeWebGLRenderer(arController) {
     let renderer = new THREE.WebGLRenderer({antialias: true});
     if ( arController.orientation === 'portrait' ) {
-        let w = (window.innerWidth / arController.videoHeight) * arController.videoWidth;
-        let h = window.innerWidth;
+        let w = (windoww.innerWidth.innerWidth / arController.videoHeight) * arController.videoWidth;
+        let h = windo
         renderer.setSize(w, h);
         renderer.domElement.style.paddingBottom = (w-h) + 'px';
     } else {
@@ -21,3 +21,9 @@ export default function makeWebGLRenderer(arController) {
     return renderer;
 };
 
+/**
+ * cameraParam Constants
+ * @type {string}
+ */
+const CAMERA_PARAM ='../../bower_components/jsartoolkit5/examples/Data/camera_para.dat';
+export { CAMERA_PARAM };
