@@ -1,4 +1,4 @@
-import {getAccessToken, getARDevices, callIoTMakersApi} from '../utils/iotmakers.api';
+import {getAccessToken, getARDevices} from '../utils/iotmakers.api';
 import {makeWebGLRenderer, CAMERA_PARAM} from '../utils/jsartoolkit.api';
 
 

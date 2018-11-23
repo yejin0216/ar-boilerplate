@@ -21,12 +21,21 @@
  1. 사전 설치
      - git 설치
      - nodejs 설치
-     - `npm install`
-     - `npm install webpack -g`
-     - `npm install webpack-cli -g`
-     - `npm install webpack-dev-server -g`
+     - 터미널에 차례대로 실행
+     ```
+        cd C:\Users\yejin\WebstormProjects\ar_boilerplate
+        npm install
+        bower install
+     ```
  2. 시작
-     - 터미널에 `webpack-dev-server` 실행
+     - Build
+     ```
+        npm run build
+     ```
+     - Running
+     ```
+        npm run dev
+     ```
      - `http://localhost:9000` 접속
 
 # important issues

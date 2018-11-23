@@ -1,10 +1,15 @@
 /**
+ * Access Token
+ * @type {string}
+ */
+let accessToken = 'Basic TWpaaVpXTXhPR05pTmpnME5HVTJaV0psWXpZeFltVmhOVFpsT1dJeFpERXhORE15TWpBMk9UZzRPVFUwOll6STROVGt4T1dReE5qZG1ORGsxWXpneU5UZzRPV0ZpWlRCaVlUY3hNR1F4TkRNeU1qQTJPVGc0T1RVMA==';
+
+/**
  * IoTMakers Access Token 발급
  * @param id
  * @param password
- * @param callback
+ * @returns {Promise<any>}
  */
-let accessToken = 'Basic TWpaaVpXTXhPR05pTmpnME5HVTJaV0psWXpZeFltVmhOVFpsT1dJeFpERXhORE15TWpBMk9UZzRPVFUwOll6STROVGt4T1dReE5qZG1ORGsxWXpneU5UZzRPV0ZpWlRCaVlUY3hNR1F4TkRNeU1qQTJPVGc0T1RVMA==';
 export function getAccessToken(id, password) {
     return new Promise((resolve, reject) => {
         let xhr = new XMLHttpRequest();
@@ -37,7 +42,7 @@ export function getARDevices(pSvcTgtSeq) {
         xhr.open('GET', `https://iotmakers.kt.com/masterapi/v1.1/arCodes?offset=1&limit=5&targetSequence=${pSvcTgtSeq}&deviceSequence=`);
         xhr.setRequestHeader('Accept', 'application/json, text/plain, */*');
         xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-        xhr.setRequestHeader('Authorization', 'Bearer '+accessToken);
+        xhr.setRequestHeader('Authorization', `Bearer ${accessToken}`);
         xhr.onload = () => {
             if (xhr.status >= 200 && xhr.status < 300) {
                 resolve(JSON.parse(xhr.response));
@@ -55,6 +60,7 @@ export function getARDevices(pSvcTgtSeq) {
  * @param method
  * @param url
  * @param data
+ * @param callback
  */
 export function callIoTMakersApi(method, url, data, callback) {
     let xhr = new XMLHttpRequest();
@@ -67,9 +73,9 @@ export function callIoTMakersApi(method, url, data, callback) {
             }
         }
     };
-    xhr.open(method, 'https://iotmakers.kt.com/api/'+url, true);
+    xhr.open(method, `https://iotmakers.kt.com/api/${url}`, true);
     xhr.setRequestHeader('Accept', 'application/json, text/plain, */*');
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
-    xhr.setRequestHeader('Authorization', 'Bearer '+accessToken);
+    xhr.setRequestHeader('Authorization', `Bearer ${accessToken}`);
     xhr.send(data);
 };

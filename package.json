@@ -4,8 +4,8 @@
   "description": "a training project for new employees of KT S/W Division",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack",
+    "dev": "webpack-dev-server --hot --inline --port 9000"
   },
   "bug": {
     "url": "https://github.com/yejin0216/ar_boilerplate/issues",
@@ -28,8 +28,11 @@
   },
   "homepage": "https://github.com/yejin0216/ar_boilerplate#readme",
   "devDependencies": {
-    "lodash": "^4.17.11",
     "babel-core": "^6.26.3",
-    "babel-loader": "7.0.0"
+    "babel-loader": "7.0.0",
+    "lodash": "^4.17.11",
+    "webpack": "^4.26.0",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
   }
 }

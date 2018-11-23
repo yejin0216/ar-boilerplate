@@ -10,13 +10,12 @@ module.exports = {
     entry: {
         example: './src/example/arExample.js'
     },
-    watchOptions: {
-        ignored: ['bower_components', 'node_modules']
-    },
+    // watchOptions: {
+    //     ignored: ['bower_components', 'node_modules']
+    // },
     output: {
         filename: 'bundle.js',
-        path: path.resolve(__dirname, 'dist'),
-        publicPath: '/dist/'
+        path: path.resolve(__dirname, 'dist')
     },
     module: {
         rules: [{
@@ -27,8 +26,7 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, '/'),
-        compress: true,
         port: 9000,
-        historyApiFallback:true
+        publicPath: '/dist/'
     }
 };
