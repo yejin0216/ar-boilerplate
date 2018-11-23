@@ -7,7 +7,7 @@
     "build": "webpack",
     "dev": "webpack-dev-server --hot --inline --port 9000"
   },
-  "bug": {
+  "bugs": {
     "url": "https://github.com/yejin0216/ar_boilerplate/issues",
     "email": "yejin0216@gmail.com"
   },
@@ -23,9 +23,6 @@
     "email": "yejin0216@gmail.com"
   },
   "license": "(MIT OR LGPL-3.0)",
-  "bugs": {
-    "url": "https://github.com/yejin0216/ar_boilerplate/issues"
-  },
   "homepage": "https://github.com/yejin0216/ar_boilerplate#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
