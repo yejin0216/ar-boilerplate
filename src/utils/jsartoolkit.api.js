@@ -3,7 +3,7 @@
  * @param arController
  * @returns {THREE.WebGLRenderer}
  */
-export function makeWebGLRenderer(arController) {
+export function makeWebGLRenderer(arController, viewDom) {
     let renderer = new THREE.WebGLRenderer({antialias: true});
     if ( arController.orientation === 'portrait' ) {
         let w = (windoww.innerWidth.innerWidth / arController.videoHeight) * arController.videoWidth;
@@ -15,7 +15,7 @@ export function makeWebGLRenderer(arController) {
             renderer.setSize(window.innerWidth, (window.innerWidth / arController.videoWidth) * arController.videoHeight);
         } else {
             renderer.setSize(arController.videoWidth, arController.videoHeight);
-            document.body.className += ' desktop';
+            viewDom.className += ' desktop';
         }
     }
     return renderer;

@@ -58,17 +58,16 @@ export function getARDevices(pSvcTgtSeq) {
  */
 export function callIoTMakersApi(method, url, data, callback) {
     let xhr = new XMLHttpRequest();
-    xhr.onload = function() {
+    xhr.onload = () => {
         if (xhr.readyState === 4) {
             if (xhr.status === 200) {
-                let reponseText = JSON.parse(xhr.responseText); //response
-                callback.apply(reponseText);
+                callback(JSON.parse(xhr.response)); //response
             } else {
                 console.error(xhr.statusText);
             }
         }
     };
-    xhr.open(method, 'https://iotmakers.kt.com/'+url, true);
+    xhr.open(method, 'https://iotmakers.kt.com/api/'+url, true);
     xhr.setRequestHeader('Accept', 'application/json, text/plain, */*');
     xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
     xhr.setRequestHeader('Authorization', 'Bearer '+accessToken);

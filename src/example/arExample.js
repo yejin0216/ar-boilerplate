@@ -1,34 +1,34 @@
-import {getAccessToken, getARDevices} from '../utils/iotmakers.api';
+import {getAccessToken, getARDevices, callIoTMakersApi} from '../utils/iotmakers.api';
 import {makeWebGLRenderer, CAMERA_PARAM} from '../utils/jsartoolkit.api';
+
+
+/**
+ * access token 발급
+ */
+getAccessToken( 'wis2016', 'new1234!' )
+    .then( token => loadARObject(token.svc_tgt_seq) ) //AR Object 조회
 
 /**
  * initialize AR
  * @returns {Promise<T | never>}
  */
-function loadARObject() {
-    /**
-     * IoTMakers Access Token 호출
-     * @param id
-     * @param password
-     * @param callback
-     */
-    return getAccessToken( 'wis2016', 'new1234!' )
-        .then( token => getARDevices(token.svc_tgt_seq) )
-        .then( devList => {
-            /**
-             * AR 바코드가 매핑된 디바이스 목록 조회
-             * @param id
-             * @param password
-             * @param callback
-             */
+function loadARObject( pSvcTgtSeq ) {
+    return getARDevices( pSvcTgtSeq )
+        .then( arDevList => {
             window.ARThreeOnLoad = () => {
                 ARController.getUserMediaThreeScene({maxARVideoSize: 320, cameraParam: CAMERA_PARAM,
                     onSuccess: function(arScene, arController, arCamera) {
-                        document.body.className = arController.orientation;
-                        arController.setPatternDetectionMode(artoolkit.AR_MATRIX_CODE_DETECTION);
 
-                        let renderer = makeWebGLRenderer(arController);
-                        document.body.insertBefore(renderer.domElement, document.body.firstChild);
+                        let viewDom = document.body;
+                        viewDom.className = arController.orientation;
+
+                        arController.setPatternDetectionMode(artoolkit.AR_MATRIX_CODE_DETECTION);
+                        arController.setMatrixCodeType(artoolkit.AR_MATRIX_CODE_4x4);
+
+                        let renderer = makeWebGLRenderer(arController, viewDom);
+                        viewDom.insertBefore(renderer.domElement, viewDom.firstChild);
+
+                        let meshArray = [];
 
                         // See /doc/patterns/Matrix code 3x3 (72dpi)/20.png
                         let sphere = new THREE.Mesh(
@@ -37,6 +37,7 @@ function loadARObject() {
                         );
                         sphere.material.shading = THREE.FlatShading;
                         sphere.position.z = 0.5;
+                        meshArray.push(sphere);
 
                         // See /doc/patterns/Matrix code 3x3 (72dpi)/21.png
                         let cube = new THREE.Mesh(
@@ -45,13 +46,23 @@ function loadARObject() {
                         );
                         cube.material.shading = THREE.FlatShading;
                         cube.position.z = 0.5;
+                        meshArray.push(cube);
 
-                        let markerRoot = arController.createThreeBarcodeMarker(20);
-                        markerRoot.add(sphere);
-                        arScene.scene.add(markerRoot);
-                        markerRoot = arController.createThreeBarcodeMarker(21);
-                        markerRoot.add(cube);
-                        arScene.scene.add(markerRoot);
+                        let cone = new THREE.Mesh(
+                            new THREE.ConeGeometry(0.5, 2, 32),
+                            new THREE.MeshNormalMaterial()
+                        );
+                        cone.material.shading = THREE.FlatShading;
+                        cone.position.z = 0.5;
+                        meshArray.push(cone);
+
+                        arDevList=arDevList.data;
+                        for ( let i=0, count=arDevList.length; i<count; i++ ) {
+                            let arCode = arDevList[i].value;
+                            let markerRoot = arController.createThreeBarcodeMarker(parseInt(arCode));
+                            markerRoot.add(meshArray[i%3]);
+                            arScene.scene.add(markerRoot);
+                        }
 
                         let rotationV = 0;
                         let rotationTarget = 0;
@@ -82,11 +93,3 @@ function loadARObject() {
             }
     });
 }
-
-loadARObject();
-
-
-
-
-
-
