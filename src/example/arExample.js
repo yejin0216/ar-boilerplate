@@ -30,7 +30,6 @@ function loadARObject( pSvcTgtSeq ) {
 
                         let meshArray = [];
 
-                        // See /doc/patterns/Matrix code 3x3 (72dpi)/20.png
                         let sphere = new THREE.Mesh(
                             new THREE.SphereGeometry(0.5, 8, 8),
                             new THREE.MeshNormalMaterial()
@@ -39,7 +38,6 @@ function loadARObject( pSvcTgtSeq ) {
                         sphere.position.z = 0.5;
                         meshArray.push(sphere);
 
-                        // See /doc/patterns/Matrix code 3x3 (72dpi)/21.png
                         let cube = new THREE.Mesh(
                             new THREE.BoxGeometry(1,1,1),
                             new THREE.MeshNormalMaterial()
