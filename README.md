@@ -26,12 +26,8 @@
      - `npm install webpack-cli -g`
      - `npm install webpack-dev-server -g`
  2. 시작
-     - 터미널에 `webpack-dev-server --hot` 또는 `webpack-dev-server` 실행
+     - 터미널에 `webpack-dev-server` 실행
      - `http://localhost:9000` 접속
 
 # important issues
- 1. [Webpack : high CPU usage]
-
-
-
- [Webpack : high CPU usage] : https://github.com/webpack/webpack/issues/701#issuecomment-70654775
+ 1. [Webpack : high CPU usage](https://github.com/webpack/webpack/issues/701#issuecomment-70654775)
