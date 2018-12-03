@@ -5,7 +5,7 @@ import {makeWebGLRenderer, CAMERA_PARAM} from '../utils/jsartoolkit.api';
 /**
  * access token 발급
  */
-getAccessToken( 'wis2016', 'new1234!' )
+getAccessToken( 'id', 'password' )
     .then( token => loadARObject(token.svc_tgt_seq) ) //AR Object 조회
 
 /**
