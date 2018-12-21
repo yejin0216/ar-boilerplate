@@ -23,7 +23,7 @@
      - nodejs 설치
      - 터미널에 차례대로 실행
      ```
-        cd C:\Users\yejin\WebstormProjects\ar_boilerplate
+        cd 프로젝트 
         npm install
         bower install
      ```
