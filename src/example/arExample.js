@@ -19,18 +19,18 @@ function loadARObject( pSvcTgtSeq ) {
                 ARController.getUserMediaThreeScene({maxARVideoSize: 320, cameraParam: CAMERA_PARAM,
                     onSuccess: function(arScene, arController, arCamera) {
 
-                        let viewDom = document.body;
+                        const viewDom = document.body;
                         viewDom.className = arController.orientation;
 
                         arController.setPatternDetectionMode(artoolkit.AR_MATRIX_CODE_DETECTION);
                         arController.setMatrixCodeType(artoolkit.AR_MATRIX_CODE_4x4);
 
-                        let renderer = makeWebGLRenderer(arController, viewDom);
+                        const renderer = makeWebGLRenderer(arController, viewDom);
                         viewDom.insertBefore(renderer.domElement, viewDom.firstChild);
 
                         let meshArray = [];
 
-                        let sphere = new THREE.Mesh(
+                        const sphere = new THREE.Mesh(
                             new THREE.SphereGeometry(0.5, 8, 8),
                             new THREE.MeshNormalMaterial()
                         );
@@ -38,7 +38,7 @@ function loadARObject( pSvcTgtSeq ) {
                         sphere.position.z = 0.5;
                         meshArray.push(sphere);
 
-                        let cube = new THREE.Mesh(
+                        const cube = new THREE.Mesh(
                             new THREE.BoxGeometry(1,1,1),
                             new THREE.MeshNormalMaterial()
                         );
@@ -46,7 +46,7 @@ function loadARObject( pSvcTgtSeq ) {
                         cube.position.z = 0.5;
                         meshArray.push(cube);
 
-                        let cone = new THREE.Mesh(
+                        const cone = new THREE.Mesh(
                             new THREE.ConeGeometry(0.5, 2, 32),
                             new THREE.MeshNormalMaterial()
                         );
@@ -55,9 +55,9 @@ function loadARObject( pSvcTgtSeq ) {
                         meshArray.push(cone);
 
                         arDevList=arDevList.data;
-                        for ( let i=0, count=arDevList.length; i<count; i++ ) {
-                            let arCode = arDevList[i].value;
-                            let markerRoot = arController.createThreeBarcodeMarker(parseInt(arCode));
+                        for ( let i=0; i<arDevList.length; i++ ) {
+                            const arCode = arDevList[i].value;
+                            const markerRoot = arController.createThreeBarcodeMarker(parseInt(arCode));
                             markerRoot.add(meshArray[i%3]);
                             arScene.scene.add(markerRoot);
                         }
@@ -69,7 +69,7 @@ function loadARObject( pSvcTgtSeq ) {
                             rotationTarget += 1;
                         }, false);
 
-                        let tick = () => {
+                        const tick = () => {
                             arScene.process();
                             arScene.renderOn(renderer);
                             rotationV += (rotationTarget - sphere.rotation.z) * 0.05;

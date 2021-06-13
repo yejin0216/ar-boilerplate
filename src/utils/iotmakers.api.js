@@ -2,7 +2,7 @@
  * Access Token
  * @type {string}
  */
-let accessToken = 'Basic TWpaaVpXTXhPR05pTmpnME5HVTJaV0psWXpZeFltVmhOVFpsT1dJeFpERXhORE15TWpBMk9UZzRPVFUwOll6STROVGt4T1dReE5qZG1ORGsxWXpneU5UZzRPV0ZpWlRCaVlUY3hNR1F4TkRNeU1qQTJPVGc0T1RVMA==';
+let accessToken = ""; //FIXME 작성 필요
 
 /**
  * IoTMakers Access Token 발급
@@ -12,14 +12,14 @@ let accessToken = 'Basic TWpaaVpXTXhPR05pTmpnME5HVTJaV0psWXpZeFltVmhOVFpsT1dJeFp
  */
 export function getAccessToken(id, password) {
     return new Promise((resolve, reject) => {
-        let xhr = new XMLHttpRequest();
+        const xhr = new XMLHttpRequest();
         xhr.open('POST', 'https://iotmakers.kt.com/oauth/token');
         xhr.setRequestHeader('Accept', 'application/json, text/plain, */*');
         xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=utf-8');
         xhr.setRequestHeader('Authorization', accessToken);
         xhr.onload = () => {
             if (xhr.status >= 200 && xhr.status < 300) {
-                let response = JSON.parse(xhr.response);
+                const response = JSON.parse(xhr.response);
                 accessToken = response.access_token;
                 resolve(response);
             } else {
@@ -38,7 +38,7 @@ export function getAccessToken(id, password) {
  */
 export function getARDevices(pSvcTgtSeq) {
     return new Promise((resolve, reject) => {
-        let xhr = new XMLHttpRequest();
+        const xhr = new XMLHttpRequest();
         xhr.open('GET', `https://iotmakers.kt.com/masterapi/v1.1/arCodes?offset=1&limit=5&targetSequence=${pSvcTgtSeq}&deviceSequence=`);
         xhr.setRequestHeader('Accept', 'application/json, text/plain, */*');
         xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
