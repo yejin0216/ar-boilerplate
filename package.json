@@ -28,7 +28,7 @@
     "babel-core": "^6.26.3",
     "babel-loader": "7.0.0",
     "lodash": "^4.17.21",
-    "webpack": "^4.26.0",
+    "webpack": "^5.38.1",
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.11.2"
   }
