@@ -1,6 +1,7 @@
+npm-debug.log
+
+.idea/
+
 /node_modules
 /bower_components
-npm-debug.log
-.idea/
-.DS_Store
-.project
+dist
